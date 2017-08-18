@@ -17,8 +17,13 @@ namespace DI.Sample
             // Using StructureMap Container
             var container = new Container();
             Startup.Start(container);  //Initialize container      
-            VehicleDriver driver = container.GetInstance<VehicleDriver>();
-            driver.Drive();            
+            //It's a Vehicle Driver Class
+            ConstructorInjectionClass driver = container.GetInstance<ConstructorInjectionClass>();
+            driver.Drive(); 
+
+            //Property Injection
+            PropertyInjectionClass pic = container.GetInstance<PropertyInjectionClass>();            
+            Console.WriteLine("My Vehicle Class:  " + pic.MyVehicle);
 
             Console.WriteLine("Driving Completed");
             Console.Read();
